@@ -1,3 +1,9 @@
+class CustomError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "CustomError";
+    }
+}
 let form = document.querySelector('form');
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -14,7 +20,8 @@ errorBtns[0].addEventListener('click', function() {
     console.log("Console Log Demo");
 });
 errorBtns[1].addEventListener('click', function() {
-    console.error("Console Error Demo");
+    //console.error("Console Error Demo");
+    throw new CustomError("You Clicked the Error Button");
 });
 errorBtns[2].addEventListener('click', function() {
     ++counter;
@@ -42,14 +49,21 @@ errorBtns[9].addEventListener('click', function() {
     console.groupEnd();
 });
 errorBtns[10].addEventListener('click', function() {
-    
-    console.table(); // FILL TABLE
+    testTable = [{"name": "Softserve Ice Cream", "num": "110"},
+                 {"name": "Programming Frisbee", "num": "130"}];
+    console.table(testTable); // FILL TABLE
 });
 errorBtns[11].addEventListener('click', function() {
     console.time();
 });
 errorBtns[12].addEventListener('click', function() {
-    console.log(console.timeEnd());
+    try {
+        console.timeEnd();
+    }
+    catch(error) {
+        console.log(error);
+    }
+
 });
 errorBtns[13].addEventListener('click', function() {
     console.trace();
