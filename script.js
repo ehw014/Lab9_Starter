@@ -68,3 +68,7 @@ errorBtns[12].addEventListener('click', function() {
 errorBtns[13].addEventListener('click', function() {
     console.trace();
 });
+errorBtns[14].addEventListener('click', function() {
+    //console.error("Console Error Demo");
+    throw new CustomError("GLOBAL ERROR");
+});
